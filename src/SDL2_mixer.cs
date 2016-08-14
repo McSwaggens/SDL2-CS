@@ -38,7 +38,7 @@ namespace SDL2
 		#region SDL2# Variables
 
 		/* Used by DllImport to load the native library. */
-		private const string nativeLibName = "SDL2_mixer.dll";
+		private const string nativeLibName = "SDL2_mixer";
 
 		#endregion
 
@@ -220,6 +220,9 @@ namespace SDL2
 
 		[DllImport(nativeLibName, CallingConvention = CallingConvention.Cdecl)]
 		public static extern int Mix_GetNumChunkDecoders();
+		
+		[DllImport(nativeLibName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern uint SDL_GetTicks();
 
 		[DllImport(nativeLibName, CallingConvention = CallingConvention.Cdecl)]
 		[return : MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(LPUtf8StrMarshaler), MarshalCookie = LPUtf8StrMarshaler.LeaveAllocated)]
